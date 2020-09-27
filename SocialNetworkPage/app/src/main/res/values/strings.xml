@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">VK</string>
+    <string name="name">Ангелина Евсикова</string>
+    <string name="status">Какой-нибудь статус</string>
+    <string name="online">Online📱</string>
+    <string name="story">История</string>
+    <string name="id">evsikovaa</string>
+    <string name="post">Запись</string>
+    <string name="Photo">Фото</string>
+    <string name="clip">Клип</string>
+    <string name="countOfFriends">161 друг</string>
+    <string name="city">Город: Казань</string>
+    <string name="education">КФУ (бывш. КГУ им. Ульянова-Ленина) \'23</string>
+    <string name="enter_city">Введите город</string>
+    <string name="change">Редактировать</string>
+    <string name="email">Email или телефон</string>
+    <string name="password">Пароль</string>
+    <string name="nameOfUser">Имя пользователя</string>
+    <string name="registration">Зарегестрироваться</string>
+</resources>

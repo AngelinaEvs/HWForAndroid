@@ -13,4 +13,8 @@
     <string name="education">КФУ (бывш. КГУ им. Ульянова-Ленина) \'23</string>
     <string name="enter_city">Введите город</string>
     <string name="change">Редактировать</string>
+    <string name="email">Email или телефон</string>
+    <string name="password">Пароль</string>
+    <string name="nameOfUser">Имя пользователя</string>
+    <string name="registration">Зарегестрироваться</string>
 </resources>

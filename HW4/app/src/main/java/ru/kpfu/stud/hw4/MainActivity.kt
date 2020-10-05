@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         if (a_coef != null && b_coef != null) {
             val a = a_coef.text.toString().toDouble()
             val b = b_coef.text.toString().toDouble()
-            val sign = button!!.text.toString()
+            val sign = button.text.toString()
             val intent = Intent(Intent.ACTION_VIEW)
             intent.addCategory(Intent.CATEGORY_OPENABLE)
             intent.putExtra("a_double", a)

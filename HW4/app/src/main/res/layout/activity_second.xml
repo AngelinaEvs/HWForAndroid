@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity">
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="206dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="48dp"
+        android:background="#075e55"
+        android:text="Вернуться назад"
+        android:textColor="#fffeff"
+        android:textSize="10pt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/res"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/text_res"
+        android:layout_width="211dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="212dp"
+        android:fontFamily="arial"
+        android:paddingStart="8dp"
+        android:text="Результат:"
+        android:textAlignment="center"
+        android:textColor="#065047"
+        android:textSize="15pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/res"
+        android:layout_width="146dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="arial"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:textColor="#065047"
+        android:textSize="13pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_res" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

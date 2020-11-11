@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="260dp"
+android:padding="20dp"
+android:background="#fff">
+
+<EditText
+    android:id="@+id/newName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp"
+    android:ems="10"
+    android:hint="Название элемента"
+    android:inputType="textPersonName"
+    android:textColor="#000000"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/descr"
+        style="@style/Animation.Design.BottomSheetDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Описание"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/newName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/newName"
+        app:layout_constraintTop_toBottomOf="@+id/newName" />
+
+    <EditText
+    android:id="@+id/posit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:ems="10"
+    android:hint="Позиция в списке"
+    android:inputType="number"
+    android:textColor="#000000"
+    app:layout_constraintEnd_toEndOf="@+id/descr"
+    app:layout_constraintStart_toStartOf="@+id/descr"
+    app:layout_constraintTop_toBottomOf="@+id/descr" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

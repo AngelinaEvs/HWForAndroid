@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/star"
+        android:icon="@android:drawable/btn_star"
+        android:title="Инфо"/>
+
+    <item android:id="@+id/news"
+        android:icon="@android:drawable/stat_notify_chat"
+        android:title="Список"/>
+
+    <item android:id="@+id/message"
+        android:icon="@android:drawable/ic_dialog_email"
+        android:title="Карточки"/>
+
+</menu>

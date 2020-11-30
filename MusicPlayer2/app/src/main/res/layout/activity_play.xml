@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlayActivity">
+
+    <ImageView
+        android:id="@+id/image_play"
+        android:layout_width="304dp"
+        android:layout_height="304dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/elapsedTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/author_play"
+        app:layout_constraintEnd_toStartOf="@+id/seek_bar_music"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_play"
+        app:layout_constraintVertical_bias="0.402" />
+
+    <TextView
+        android:id="@+id/remainingTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/author_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toEndOf="@+id/seek_bar_music"
+        app:layout_constraintTop_toBottomOf="@+id/image_play"
+        app:layout_constraintVertical_bias="0.402" />
+
+    <SeekBar
+        android:id="@+id/seek_bar_music"
+        android:layout_width="304dp"
+        android:layout_height="8dp"
+        android:layout_marginTop="8dp"
+        android:progressTint="#105DBF"
+        android:theme="@style/SeekBarColor"
+        app:layout_constraintBottom_toTopOf="@+id/author_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_play"
+        app:layout_constraintVertical_bias="0.352" />
+
+    <TextView
+        android:id="@+id/author_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_play" />
+
+    <TextView
+        android:id="@+id/title_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/author_play" />
+
+    <View
+        android:id="@+id/next"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="88dp"
+        android:background="@drawable/ic_ff"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/statement"
+        app:layout_constraintTop_toBottomOf="@+id/title_play" />
+
+    <View
+        android:id="@+id/back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/ic_rew"
+        android:backgroundTint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_play" />
+
+    <View
+        android:id="@+id/statement"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/ic_baseline_pause_24"
+        android:backgroundTint="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/back"
+        app:layout_constraintTop_toBottomOf="@+id/title_play" />
+
+    <View
+        android:id="@+id/min_volume"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginRight="40dp"
+        android:background="@android:drawable/ic_lock_silent_mode_off"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintStart_toEndOf="@+id/seek_bar_volume"
+        app:layout_constraintTop_toBottomOf="@+id/next"
+        app:layout_constraintVertical_bias="0.634" />
+
+    <View
+        android:id="@+id/max_volume"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="40dp"
+        android:background="@android:drawable/ic_lock_silent_mode"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back"
+        app:layout_constraintVertical_bias="0.634" />
+
+    <SeekBar
+        android:id="@+id/seek_bar_volume"
+        android:layout_width="240dp"
+        android:layout_height="8dp"
+        android:layout_marginStart="12dp"
+        android:progress="50"
+        android:progressTint="#105DBF"
+        android:theme="@style/SeekBarColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/max_volume"
+        app:layout_constraintTop_toBottomOf="@+id/statement"
+        app:layout_constraintVertical_bias="0.615" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

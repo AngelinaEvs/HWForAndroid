@@ -1,4 +1,4 @@
-package com.itis.template
+package ru.kpfu.stud.weather
 
 import android.app.Application
 import moxy.MvpFacade

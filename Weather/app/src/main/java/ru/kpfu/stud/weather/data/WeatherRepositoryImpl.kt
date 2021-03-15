@@ -3,7 +3,6 @@ package ru.kpfu.stud.weather.data
 import android.content.Context
 import android.location.Location
 import android.widget.Toast
-import com.itis.template.SearchActivity
 import ru.kpfu.stud.weather.data.api.WeatherApi
 import ru.kpfu.stud.weather.data.api.response.Weather
 import ru.kpfu.stud.weather.data.api.response.WeatherResponse

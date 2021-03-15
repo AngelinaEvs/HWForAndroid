@@ -1,4 +1,4 @@
-package com.itis.template.data
+package ru.kpfu.stud.weather.data
 
 import android.annotation.SuppressLint
 import android.location.Location

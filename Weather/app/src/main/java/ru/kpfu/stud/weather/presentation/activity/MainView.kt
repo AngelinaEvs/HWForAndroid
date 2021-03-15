@@ -1,12 +1,10 @@
-package com.itis.template.presentation.main
+package ru.kpfu.stud.weather.presentation.activity
 
 import android.location.Location
-import android.os.Build
-import androidx.annotation.RequiresApi
 import moxy.MvpView
 import moxy.viewstate.strategy.alias.AddToEndSingle
-import moxy.viewstate.strategy.alias.OneExecution
 import moxy.viewstate.strategy.alias.Skip
+import ru.kpfu.stud.weather.data.model.entity.WeatherEntity
 
 @AddToEndSingle
 interface MainView : MvpView {
@@ -22,10 +20,9 @@ interface MainView : MvpView {
     @Skip
     fun consumerError(throwable: Throwable)
 
-    fun showWeather(lat: Double, lon: Double)//(temperature: String)
+    fun showWeather(list: List<WeatherEntity>)
 
     fun showUserLocation(location: Location)
 
-    @OneExecution
-    fun navigateToLogin()
+    fun showDetails(entity: WeatherEntity)
 }

@@ -1,7 +1,7 @@
-package com.itis.template.presentation.main
+package ru.kpfu.stud.weather.presentation.activity
 
 import android.location.Location
-import com.itis.template.data.LocationRepositoryImpl
+import ru.kpfu.stud.weather.data.LocationRepositoryImpl
 import kotlinx.coroutines.launch
 import moxy.MvpPresenter
 import moxy.presenterScope
@@ -29,71 +29,69 @@ class MainPresenter(
 //        }
 //    }
 
+    fun onButtonClick() {
+        presenterScope.launch {
+            viewState.showDetails(findCityUseCase.findWeatherInBase())
+        }
+    }
+
     fun around(lat: Double, lon: Double): List<WeatherEntity> {
         var list: List<WeatherEntity> = ArrayList<WeatherEntity>()
+        viewState.showLoading()
         presenterScope.launch {
             list = findCityUseCase.findAround(lat, lon)
+            viewState.showWeather(list)
         }
         return list
     }
 
-    fun onHelloClickName(query: String?) {
-        var idCity: Int
-        var windSpeedCity: String
-        var windDeg: String
-        var descr: String
-        var tempCity: String
-        var cityName: String
-        var feel: String
-        var entity: WeatherEntity?
-        var res: WeatherResponse
-
-        presenterScope.launch {
+    fun onHelloClickName(query: String?): WeatherEntity? {
+        var entity: WeatherEntity? = null
+        try {
+            viewState.showLoading()
+            presenterScope.launch {
             if (query != null) {
                 findCityUseCase.findWeatherInCity(query!!).run {
-                    cityName = name
-                    idCity = id
-                    windSpeedCity = wind.speed.toInt().toString()
-                    windDeg = calcWind(wind.deg)
-                    descr = weather[0].description
-                    tempCity = main.temp.toInt().toString()
-                    feel = main.feelsLike.toInt().toString()
+                    entity = WeatherEntity(1, name, id, coord.lat, coord.lon, main.temp.toInt(), weather[0].description,
+                        wind.speed.toInt().toString(), main.feelsLike.toInt().toString(), calcWind(wind.deg))
+                }
+                viewState.showDetails(entity!!)
+            }
+            }
+        } catch (throwable: Throwable) {
+            viewState.consumerError(throwable)
+        } finally {
+            viewState.hideLoading()
+        }
+        return entity
+    }
+
+    fun onHelloClickId(id: Int): WeatherEntity? {
+        var entity: WeatherEntity? = null
+        try {
+            viewState.showLoading()
+            presenterScope.launch {
+                if (id != null) {
+                    findCityUseCase.findWeatherInCityByIdUpdate(id!!).run {
+                        entity = WeatherEntity(1, name, id, coord.lat, coord.lon, main.temp.toInt(), weather[0].description,
+                            wind.speed.toInt().toString(), main.feelsLike.toInt().toString(), calcWind(wind.deg))
+                    }
+                    viewState.showDetails(entity!!)
                 }
             }
+        } catch (throwable: Throwable) {
+            viewState.consumerError(throwable)
+        } finally {
+            viewState.hideLoading()
         }
-        //if (isNetworkEnabled) {
-//            lifecycleScope.launch {
-//                query?.let {
-//                    api.getWeather(it).run {
-//                        cityName = name
-//                        idCity = id
-//                        windSpeedCity = wind.speed.toInt().toString()
-//                        windDeg = calcWind(wind.deg)
-//                        descr = weather[0].description
-//                        tempCity = main.temp.toInt().toString()
-//                        feel = main.feelsLike.toInt().toString()
-//                        entity = WeatherEntity(1, name, id, coord.lat, coord.lon, tempCity.toInt(), descr, feel, windSpeedCity, windDeg)
-//                        if (entity != null) repo.saveBase(entity!!)
-//                        else Toast.makeText(applicationContext, "Город не найден", Toast.LENGTH_SHORT).show()
-//                    }
-//                    val intent = Intent(applicationContext, CheckDetailsActivity::class.java)
-//                    intent.putExtra("ID", idCity)
-//                    intent.putExtra("WIND_SPEED", windSpeedCity)
-//                    intent.putExtra("DESCR", descr)
-//                    intent.putExtra("TEMP", tempCity)
-//                    intent.putExtra("NAME", cityName)
-//                    intent.putExtra("WIND_DEG", windDeg)
-//                    intent.putExtra("FEEL", feel)
-//                    startActivity(intent)
-//                }
-//            }
-        //} else Toast.makeText(applicationContext, "Нет подключения к Интернету", Toast.LENGTH_SHORT).show()
+        return entity
     }
 
     fun onHelloClickAroundNetworkDisable(): List<WeatherEntity> {
         var list = ArrayList<WeatherEntity>()
         presenterScope.launch {
             list.addAll((findCityUseCase.findDBAround()))
+            viewState.showWeather(list)
         }
         return list
     }
@@ -109,8 +107,9 @@ class MainPresenter(
     fun onLocationClick(): Location? {
         var location: Location? = null
         presenterScope.launch {
-            location = locationRepository.getUserLocation()/*.also {
-                viewState.showUserLocation(it)*/
+            location = locationRepository.getUserLocation().also {
+                viewState.showUserLocation(it)
+            }
         }
         return location
     }

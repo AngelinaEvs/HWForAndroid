@@ -41,4 +41,9 @@ class FindCityUseCase(
             weatherRepository.getWeatherAroundById(id)
         }
 
+    suspend fun findWeatherInBase(): WeatherEntity =
+        withContext(context) {
+            weatherRepository.getBase()!!
+        }
+
 }

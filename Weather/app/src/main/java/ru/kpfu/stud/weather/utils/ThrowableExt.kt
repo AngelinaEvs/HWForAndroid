@@ -1,4 +1,4 @@
-package com.itis.template.utils
+package ru.kpfu.stud.weather.utils
 
 import android.content.res.Resources
 import retrofit2.HttpException

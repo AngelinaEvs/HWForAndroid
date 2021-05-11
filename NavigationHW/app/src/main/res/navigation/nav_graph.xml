@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="ru.itis.navigationhw.presentation.auth.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="ru.itis.navigationhw.presentation.auth.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_signInFragment_to_mainActivity3"
+            app:destination="@id/mainActivity3" />
+        <argument
+            android:name="userEmail"
+            app:argType="string" />
+        <argument
+            android:name="userPassword"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="ru.itis.navigationhw.presentation.auth.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment">
+        </action>
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity3"
+        android:name="ru.itis.navigationhw.presentation.main.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main"/>
+
+
+    <!--    <activity-->
+<!--        android:id="@+id/secondactivity"-->
+<!--        android:name="ru.itis.navigationhw.presentation.main.MainActivity"-->
+<!--        android:label="activity_main"-->
+<!--        tools:layout="@layout/activity_main" />-->
+
+<!--    <activity-->
+<!--        android:id="@+id/mainActivity"-->
+<!--        android:name="ru.itis.navigationhw.presentation.main.MainActivity"-->
+<!--        tools:layout="@layout/activity_main"/>-->
+
+
+</navigation>
